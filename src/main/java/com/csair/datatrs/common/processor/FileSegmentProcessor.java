@@ -13,12 +13,13 @@ import java.io.*;
  * 对文件按照 某个segment方法分割后，在存入文本中
  * Created by cloudoo on 2015/5/4.
  */
-public class FileProcessor implements Processor {
-    protected static final Logger log = LoggerFactory.getLogger(FileProcessor.class);
+public class FileSegmentProcessor implements Processor {
+
+    protected static final Logger log = LoggerFactory.getLogger(FileSegmentProcessor.class);
     private File tempfile;
     private FieldSegment segment;
 
-    public FileProcessor(File file, FieldSegment segment){
+    public FileSegmentProcessor(File file, FieldSegment segment){
         tempfile= file;
         this.segment = segment;
     }

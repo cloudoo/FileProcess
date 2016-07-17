@@ -7,5 +7,6 @@ package com.csair.datatrs.common;
 public interface Processor {
 
     public void doit();
+//    public Processor setNext(Processor processor);
 
 }
