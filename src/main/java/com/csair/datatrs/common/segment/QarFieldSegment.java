@@ -2,6 +2,7 @@ package com.csair.datatrs.common.segment;
 
 
 
+import com.csair.datatrs.common.FieldSegment;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.Map;
 /**
  * Created by cloudoo on 2015/10/27.
  */
-public class QarFieldSegment implements FieldSegment{
+public class QarFieldSegment implements FieldSegment {
 
     public static Map<String,String> map = new HashMap<String,String>();
 

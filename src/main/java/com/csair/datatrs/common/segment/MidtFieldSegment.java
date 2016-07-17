@@ -1,11 +1,12 @@
 package com.csair.datatrs.common.segment;
 
+import com.csair.datatrs.common.FieldSegment;
 import com.csair.datatrs.utils.DateUtils;
 
 /**
  * Created by cloudoo on 2015/10/27.
  */
-public class MidtFieldSegment implements FieldSegment{
+public class MidtFieldSegment implements FieldSegment {
 
     public static String divline = "----------------------------------------------------------------";
     @Override

@@ -1,10 +1,12 @@
 package com.csair.datatrs.common.segment;
 
+import com.csair.datatrs.common.FieldSegment;
+
 /**
  *
  * Created by cloudoo on 2015/10/27.
  */
-public class HpidFieldSegment implements FieldSegment{
+public class HpidFieldSegment implements FieldSegment {
     @Override
     public String segment(String... words) {
 

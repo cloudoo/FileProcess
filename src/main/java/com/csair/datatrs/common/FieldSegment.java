@@ -1,4 +1,4 @@
-package com.csair.datatrs.common.segment;
+package com.csair.datatrs.common;
 
 /**
  * Created by cloudoo on 2015/5/4.

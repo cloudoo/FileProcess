@@ -1,5 +1,7 @@
-package com.csair.datatrs.common;
+package com.csair.datatrs.common.processor;
 
+
+import com.csair.datatrs.common.Processor;
 
 import java.io.BufferedInputStream;
 import java.io.File;

@@ -1,7 +1,8 @@
-package com.csair.datatrs.common;
+package com.csair.datatrs.common.processor;
 
 
-import com.csair.datatrs.common.segment.FieldSegment;
+import com.csair.datatrs.common.Processor;
+import com.csair.datatrs.common.FieldSegment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

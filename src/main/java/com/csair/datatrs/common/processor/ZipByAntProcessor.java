@@ -1,5 +1,6 @@
-package com.csair.datatrs.common;
+package com.csair.datatrs.common.processor;
 
+import com.csair.datatrs.common.Processor;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Zip;
 import org.apache.tools.ant.types.FileSet;
@@ -11,7 +12,7 @@ import java.io.File;
 /**
  * Created by cloudoo on 2015/10/28.
  */
-public class ZipByAntProcessor  implements Processor{
+public class ZipByAntProcessor  implements Processor {
     protected static final Logger log = LoggerFactory.getLogger(ZipByAntProcessor.class);
     private File zipFile;
     private String srcPathName;

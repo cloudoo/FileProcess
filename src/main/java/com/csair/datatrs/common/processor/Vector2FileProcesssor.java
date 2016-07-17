@@ -1,5 +1,6 @@
-package com.csair.datatrs.common;
+package com.csair.datatrs.common.processor;
 
+import com.csair.datatrs.common.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * Created by cloudoo on 2015/7/17.
  */
-public class Vector2FileProcesssor implements Processor{
+public class Vector2FileProcesssor implements Processor {
     protected static final Logger log = LoggerFactory.getLogger(Vector2FileProcesssor.class);
     private String fileName;
     private List<double[]> temp;
@@ -35,7 +36,7 @@ public class Vector2FileProcesssor implements Processor{
                 for(double[] arr:temp){
                     for(int i=0;i<arr.length;i++){
                         if(i!=(arr.length-1)){
-                            bw.write(arr[i]+File2VectorProcessor.SPLIT_TEXT);
+                            bw.write(arr[i]+ File2VectorProcessor.SPLIT_TEXT);
                         }else{
                             bw.write(String.valueOf(arr[i]));
                         }
