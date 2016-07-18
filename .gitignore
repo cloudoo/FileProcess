@@ -2,4 +2,5 @@ target/
 .idea/
 FileProcess.iml
 logs/
-src/test/
+.settings/
+.project
