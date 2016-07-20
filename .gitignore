@@ -4,3 +4,4 @@ FileProcess.iml
 logs/
 .settings/
 .project
+.classpath
