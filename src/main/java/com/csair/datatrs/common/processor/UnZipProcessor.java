@@ -11,7 +11,6 @@ import java.util.Enumeration;
 /**
  * Created by cloudoo on 2015/5/8.
  */
-@Deprecated
 public class UnZipProcessor implements Processor {
 
     private static final int buffer = 2048;
