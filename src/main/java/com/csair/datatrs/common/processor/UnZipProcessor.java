@@ -5,13 +5,15 @@ import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 
-/**
+ /**
  * Created by cloudoo on 2015/5/8.
  */
-public class UnZipProcessor implements Processor {
+public class UnZipProcessor implements Processor<List<File>> {
 
     private static final int buffer = 2048;
     private String path;
@@ -21,7 +23,8 @@ public class UnZipProcessor implements Processor {
     }
 
 
-    public void doit() {
+    public List<File> doit() {
+        List<File> fileList = new ArrayList<>();
         int count = -1;
         int index = -1;
         String savepath = "";
@@ -60,7 +63,7 @@ public class UnZipProcessor implements Processor {
 
                 file = new File(filename);
                 file.createNewFile();
-
+                fileList.add(file);
                 is = zipFile.getInputStream(entry);
 
                 fos = new FileOutputStream(file);
@@ -81,6 +84,8 @@ public class UnZipProcessor implements Processor {
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        return fileList;
     }
 
     public  boolean isPics(String filename)

@@ -6,8 +6,8 @@ package com.csair.datatrs.common;
  * 是否考虑使用责任链模式
  * 
  */
-public interface Processor {
+public interface Processor<T> {
 
-    public void doit();
+    public T doit();
 
 }

@@ -12,7 +12,7 @@ import java.io.File;
 /**
  * Created by cloudoo on 2015/10/28.
  */
-public class ZipByAntProcessor  implements Processor {
+public class ZipByAntProcessor  implements Processor<File> {
     protected static final Logger log = LoggerFactory.getLogger(ZipByAntProcessor.class);
     private File zipFile;
     private String srcPathName;
@@ -26,7 +26,7 @@ public class ZipByAntProcessor  implements Processor {
     }
 
     @Override
-    public void doit() {
+    public File doit() {
         File srcdir = new File(srcPathName);
         if (!srcdir.exists())
             throw new RuntimeException(srcPathName + "不存在！");
@@ -44,6 +44,7 @@ public class ZipByAntProcessor  implements Processor {
         log.info("压缩中.....");
         zip.execute();
         log.info("压缩完成.....");
+        return zipFile;
     }
 
     public static void main(String[] args){

@@ -16,11 +16,11 @@ import java.util.zip.ZipOutputStream;
  * 文件压缩处理类
  * Created by cloudoo on 2015/5/4.
  */
-public class ZipProcessor implements Processor {
+public class ZipProcessor implements Processor<File> {
 
-    private String srcPathName;
+
     static final int BUFFER = 8192;
-
+    private String srcPathName;
     private File zipFile;
 
     public ZipProcessor(String srcPathName){
@@ -29,8 +29,8 @@ public class ZipProcessor implements Processor {
     }
 
     @Override
-    public void doit() {
-
+    public File doit() {
+        zipFile = new File(srcPathName+".zip");
         File file = new File(srcPathName);
 
         if (!file.exists())
@@ -45,6 +45,8 @@ public class ZipProcessor implements Processor {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        return zipFile;
     }
 
 

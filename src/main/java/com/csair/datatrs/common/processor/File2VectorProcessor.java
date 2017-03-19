@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by cloudoo on 2015/7/17.
  */
-public class File2VectorProcessor implements Processor {
+public class File2VectorProcessor implements Processor<List<double[]>> {
     protected static final Logger log = LoggerFactory.getLogger(File2VectorProcessor.class);
 
     public static String SPLIT_TEXT=" ";
@@ -25,10 +25,10 @@ public class File2VectorProcessor implements Processor {
     }
 
 
-    public void doit() {
+    public List<double[]> doit() {
         if(vectors==null){
             log.error("未传入listֹ");
-            return ;
+            return null;
         }
 
         try {
@@ -49,6 +49,8 @@ public class File2VectorProcessor implements Processor {
         } catch (IOException e) {
             log.error("文件读取io错误",e);
         }
+
+        return vectors;
     }
 
     public static void main(String[] args){

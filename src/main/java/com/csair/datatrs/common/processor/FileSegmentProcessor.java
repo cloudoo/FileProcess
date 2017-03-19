@@ -13,7 +13,7 @@ import java.io.*;
  * 对文件按照 某个segment方法分割后，在存入文本中
  * Created by cloudoo on 2015/5/4.
  */
-public class FileSegmentProcessor implements Processor {
+public class FileSegmentProcessor implements Processor<File> {
 
     protected static final Logger log = LoggerFactory.getLogger(FileSegmentProcessor.class);
     private File tempfile;
@@ -25,13 +25,13 @@ public class FileSegmentProcessor implements Processor {
     }
 
 
-    public void doit() {
+    public File doit() {
 
         FileInputStream fis= null;
         InputStreamReader isr = null;
         BufferedReader br = null;
         BufferedWriter writer = null;
-
+        File resultFile = null;
         try {
             fis = new FileInputStream(tempfile);
             isr= new InputStreamReader(fis, "UTF-8");
@@ -42,8 +42,9 @@ public class FileSegmentProcessor implements Processor {
 
             //写入另外文本中
             //简写如下：
+            resultFile = new File(tempfile.getAbsolutePath()+".process");
             writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(new File(tempfile.getAbsolutePath()+".process")), "UTF-8"));
+                    new FileOutputStream(resultFile), "UTF-8"));
 
             //注意关闭的先后顺序，先打开的后关闭，后打开的先关闭
 //
@@ -92,7 +93,7 @@ public class FileSegmentProcessor implements Processor {
                 e.printStackTrace();
             }
         }
-
+    return resultFile;
 
     }
 

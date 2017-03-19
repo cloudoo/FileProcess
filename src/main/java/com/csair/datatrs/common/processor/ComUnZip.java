@@ -6,13 +6,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
  * Created by cloudoo on 2015/5/12.
  */
-public class ComUnZip implements Processor {
+public class ComUnZip implements Processor<List<File>> {
     protected static final Logger log = LoggerFactory.getLogger(ComUnZip.class);
     String fileName = "";
     String destPath = "";
@@ -27,8 +29,8 @@ public class ComUnZip implements Processor {
         this.destPath = destPath;
     }
 
-    public void doit(){
-
+    public List<File> doit(){
+        List<File> fileList = new ArrayList<>();
         int count = -1;
         int index = -1;
 
@@ -65,6 +67,7 @@ public class ComUnZip implements Processor {
                 temp = savepath +"//"+ temp;
 
                 File f = new File(temp);
+                fileList.add(f);
                 f.createNewFile();
 
                 FileOutputStream fos = new FileOutputStream(f);
@@ -84,7 +87,7 @@ public class ComUnZip implements Processor {
         } catch (Exception e) {
             log.error("文件解压错误！",e);
         }
-
+        return fileList;
     }
 
 }

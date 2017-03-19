@@ -11,7 +11,7 @@ import java.util.List;
  *
  * Created by cloudoo on 2015/7/17.
  */
-public class Vector2FileProcesssor implements Processor {
+public class Vector2FileProcesssor implements Processor<File> {
     protected static final Logger log = LoggerFactory.getLogger(Vector2FileProcesssor.class);
     private String fileName;
     private List<double[]> temp;
@@ -22,16 +22,17 @@ public class Vector2FileProcesssor implements Processor {
 
     }
 
-    public void doit() {
+    public File doit() {
 
         if(temp==null||temp.size()==0){
             log.error("数组为空！！");
         }
         BufferedWriter bw = null;
+        File resultFile = new File(fileName);
         try {
 
 
-                bw  = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(fileName))));
+                bw  = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(resultFile)));
 
                 for(double[] arr:temp){
                     for(int i=0;i<arr.length;i++){
@@ -58,5 +59,7 @@ public class Vector2FileProcesssor implements Processor {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return resultFile;
     }
 }

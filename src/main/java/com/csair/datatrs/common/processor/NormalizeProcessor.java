@@ -11,7 +11,7 @@ import java.util.List;
  * 向量均一化处理类
  * Created by cloudoo on 2015/7/17.
  */
-public class NormalizeProcessor implements Processor {
+public class NormalizeProcessor implements Processor<List<double[]>> {
     protected static final Logger log = LoggerFactory.getLogger(NormalizeProcessor.class);
 
     public List<double[]> vectors;
@@ -21,10 +21,10 @@ public class NormalizeProcessor implements Processor {
         this.vectors = vectors;
     }
 
-    public void doit() {
+    public List<double[]> doit() {
         if(vectors==null||vectors.size()==0){
             log.info("数组为空，需要初始化");
-            return ;
+            return null;
         }
         double[] firtLine = vectors.get(0);
         double[] mins = new double[firtLine.length];
@@ -50,7 +50,7 @@ public class NormalizeProcessor implements Processor {
             }
             index++;
         }
-
+        return  vectors;
     }
 
     public static void main(String[] args){
